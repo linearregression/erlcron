@@ -34,8 +34,10 @@ all: compile dialyzer test
 
 REBAR_URL=https://github.com/rebar/rebar/wiki/rebar
 $(REBAR):
-	curl -Lo rebar $(REBAR_URL) || wget $(REBAR_URL)
-	chmod a+x rebar
+	ifeq ($(REBAR),)
+		curl -Lo rebar $(REBAR_URL) || wget $(REBAR_URL)
+		chmod a+x rebar
+	endif
 
 get-rebar: $(REBAR)
 
