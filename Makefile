@@ -49,6 +49,7 @@ eunit: compile clean-common-test-data
 	$(REBAR) skip_deps=true eunit
 
 ct: compile clean-common-test-data
+	make -p test
 	$(REBAR) skip_deps=true ct
 
 test: compile eunit ct
