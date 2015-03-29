@@ -17,11 +17,15 @@ ifeq ($(ERL),)
 $(error "Erlang not available on this system")
 endif
 
-REBAR=$(shell which rebar) $(or $(CURDIR)/rebar)
+# If building on travis, use the rebar in the current directory
+ifeq ($(TRAVIS),true)
+REBAR=$(CURDIR)/rebar
+endif
 
 ifeq ($(REBAR),)
-$(error "Rebar not available on this system")
+REBAR=$(CURDIR)/rebar
 endif
+
 
 .PHONY: all fast compile doc clean test dialyzer typer shell distclean pdf \
 	get-deps escript clean-common-test-data rebuild
@@ -34,10 +38,8 @@ all: compile dialyzer test
 
 REBAR_URL=https://github.com/rebar/rebar/wiki/rebar
 $(REBAR):
-	ifeq ($(REBAR),)
-		curl -Lo rebar $(REBAR_URL) || wget $(REBAR_URL)
-		chmod a+x rebar
-	endif
+	curl -Lo rebar $(REBAR_URL) || wget $(REBAR_URL)
+	chmod a+x rebar
 
 get-rebar: $(REBAR)
 
