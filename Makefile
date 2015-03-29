@@ -23,7 +23,7 @@ ifeq ($(REBAR),)
 $(warning "Rebar not available on this system")
 endif
 
-.PHONY: all compile doc clean test dialyzer typer shell distclean pdf \
+.PHONY: all fast compile doc clean test dialyzer typer shell distclean pdf \
 	get-deps escript clean-common-test-data rebuild
 
 all: compile dialyzer test
@@ -35,6 +35,8 @@ all: compile dialyzer test
 get-deps:
 	$(REBAR) get-deps
 	$(REBAR) compile
+
+fast: compile test
 
 compile:
 	$(REBAR) skip_deps=true compile
