@@ -2,13 +2,12 @@ Erlcron
 =======
 
 Erlcron provides testable cron like functionality for Erlang
-systems, with the ability to arbitrarily set the time and place along
+systems, that allows arbitrarily set the time and place along
 with fastforwarding through tests. See erlcron.erl for more
 documentation.
 
-The synax of a job description is quite different from crontab.  It is
-(in this author's opinion) easier to read and is much more in keeping
-with the Erlang tradition.  It is not quite as expressive as cron but
+The synax of a job description follows erlang syntax which diverts from crontab convention.  This tradeoff is for better alignment with erlang programing style.
+It is not quite as expressive as cron but
 this can be compensated for by adding multiple jobs.
 
 No output is logged or mailed to anyone.  If you want output to be
@@ -40,6 +39,9 @@ Cron Job Description Examples:
     {io, fwrite, ["Hello, world!~n"]}}
 
 {{daily, {every, {23, sec}, {between, {3, pm}, {3, 30, pm}}}},
+    {io, fwrite, ["Hello, world!~n"]}}
+
+{{daily, {every, {23, sec}}},
     {io, fwrite, ["Hello, world!~n"]}}
 
 {{daily, {3, 30, pm}},
