@@ -20,7 +20,7 @@ endif
 REBAR=$(shell which rebar) $(or $(CURDIR)/rebar)
 
 ifeq ($(REBAR),)
-$(warning "Rebar not available on this system")
+$(error "Rebar not available on this system")
 endif
 
 .PHONY: all fast compile doc clean test dialyzer typer shell distclean pdf \
