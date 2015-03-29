@@ -17,10 +17,10 @@ ifeq ($(ERL),)
 $(error "Erlang not available on this system")
 endif
 
-REBAR=$(shell which rebar)
+REBAR=$(shell which rebar) $(or $(CURDIR)/rebar)
 
 ifeq ($(REBAR),)
-$(error "Rebar not available on this system")
+$(warning "Rebar not available on this system")
 endif
 
 .PHONY: all compile doc clean test dialyzer typer shell distclean pdf \
@@ -43,6 +43,7 @@ doc:
 	$(REBAR) skip_deps=true doc
 
 eunit: compile clean-common-test-data
+	make -p test
 	$(REBAR) skip_deps=true eunit
 
 ct: compile clean-common-test-data
