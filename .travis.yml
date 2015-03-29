@@ -20,7 +20,7 @@ branches:
     - master
 notifications:
   email:
-    - core@erlware.org
+    - example@example.com
   irc:
     channels:
       - "irc.freenode.org#erlware"
