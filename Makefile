@@ -32,6 +32,13 @@ all: compile dialyzer test
 # Rules to build the system
 # =============================================================================
 
+REBAR_URL=https://github.com/rebar/rebar/wiki/rebar
+$(REBAR):
+	curl -Lo rebar $(REBAR_URL) || wget $(REBAR_URL)
+	chmod a+x rebar
+
+get-rebar: $(REBAR)
+
 get-deps:
 	$(REBAR) get-deps
 	$(REBAR) compile
