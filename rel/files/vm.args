@@ -12,6 +12,7 @@
 +K true
 +A 10
 +V
++v
 
 ## enable smp if supported
 -smp auto
