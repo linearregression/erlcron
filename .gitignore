@@ -15,3 +15,5 @@ logs
 *.plt
 /deps/*
 /doc/*
+/rel/ecrn_agent
+
