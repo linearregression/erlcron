@@ -1,8 +1,12 @@
 {application,erlcron,
  [{description,"Erlang Implementation of cron"},
   {vsn,git},
-  {modules,[]},
-  {registered,[ecrn_agent]},
+  {modules,[ ecrn_agent, ecrn_app,
+             ecrn_control, ecrn_cron_sup,
+             ecrn_reg, ecrn_sup,
+             ecrn_util, erlcron
+  ]},
+  {registered,[]},
   {applications,[kernel,stdlib]},
   {mod,{ecrn_app,[]}},
   {env, []}]
