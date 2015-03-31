@@ -21,6 +21,7 @@
               dow/0,
               dom/0,
               period/0,
+              until/0,
               duration/0,
               constraint/0,
               cron_time/0,
@@ -37,8 +38,9 @@
                      | {integer(), integer(), am | pm}
                      | calendar:time().
 -type constraint() :: {between, cron_time(), cron_time()}.
+-type until() :: {until, cron_time()}.
 -type duration()   :: {integer(), hr | min | sec}.
--type period()     :: cron_time() | {every, duration(), constraint()}.
+-type period()     :: cron_time() | {every, duration(), constraint()} | {every, duration(), until()}.
 -type dom()        :: integer().
 -type dow()        :: mon | tue | wed | thu | fri | sat | sun.
 -type callable()   :: {M :: module(), F :: atom(), A :: [term()]} | function().

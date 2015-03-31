@@ -151,6 +151,7 @@ validation_test(_) ->
     ?assertMatch(valid, ecrn_agent:validate({once, 3600})),
     ?assertMatch(valid, ecrn_agent:validate({daily, {every, {23, sec},
                                                      {between, {3, pm}, {3, 30, pm}}}})),
+    % ?assertMatch(valid, ecrn_agent:validate({daily, {every, {23, sec}}})),
     ?assertMatch(valid, ecrn_agent:validate({daily, {3, 30, pm}})),
     ?assertMatch(valid, ecrn_agent:validate({weekly, thu, {2, am}})),
     ?assertMatch(valid, ecrn_agent:validate({weekly, wed, {2, am}})),
