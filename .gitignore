@@ -1,5 +1,6 @@
 .DS_Store
 .eunit
+.rebar
 *.*~
 .*~
 *~
@@ -16,4 +17,10 @@ logs
 /deps/*
 /doc/*
 /rel/ecrn_agent
+.eunit/*
+.rebar/*
+.deps_plt
+.rebar/erlcinfo
+ 
+ 
 
