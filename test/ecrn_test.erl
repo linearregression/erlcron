@@ -12,10 +12,10 @@
 cron_test_() ->
     {setup,
      fun() ->
-             ecrn_app:manual_start()
+             ecrn_app:start()
      end,
      fun(_) ->
-             ecrn_app:manual_stop()
+             ecrn_app:stop()
      end,
      {with, [fun set_alarm_test/1,
              fun travel_back_in_time_test/1,
