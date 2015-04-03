@@ -16,4 +16,5 @@ eval "erl \
     -eval \"application:start(os_mon)\" \
     -eval \"application:start(crypto)\" \
     -eval \"application:start(eunit)\" \
-    -eval \"application:start(erlcron)\""
+    -eval \"application:start(erlcron)\"\
+    -config \"priv/erlcron.config\""
