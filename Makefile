@@ -52,7 +52,7 @@ fast: compile test
 compile:
 	$(REBAR) skip_deps=true compile
 
-generate: distclean
+generate: fast
 	cp -f $(CURDIR)/priv/erlcron.config $(CURDIR)/rel/files/erlcron.config
 	rm -rvf $(CURDIR)/rel/erlcron
 	$(REBAR) generate

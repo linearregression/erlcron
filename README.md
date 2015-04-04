@@ -10,8 +10,7 @@ The synax of a job description follows erlang syntax which diverts from crontab 
 It is not quite as expressive as cron but
 this can be compensated for by adding multiple jobs.
 
-No output is logged or mailed to anyone.  If you want output to be
-logged or mailed, you must explicitly specify that as part of the job.
+No output is logged or mailed to anyone.  If such feature is desired, it must be part of the job.
 
 This does not poll the system on a minute-by-minute basis like cron
 does.  Each job is assigned to a single (Erlang) process.  The time
