@@ -76,16 +76,16 @@ cron(Job) ->
     JobRef = make_ref(),
     ecrn_cron_sup:add_job(JobRef, Job).
 %% @doc
-%%  Convienience method to specify a job run to run on a daily basis
+%%  Convienience method to specify a job to run daily
 %%  at a specific time.
--spec at/2 :: (cron_time() | seconds(), function()) -> job_ref().
+-spec at/2 :: (cron_time() | seconds(), callable()) -> job_ref().
 at(When, Fun) ->
     Job = {{daily, When}, Fun},
     cron(Job).
 
 %% @doc
 %%   Run the specified job once after the amount of time specifed.
--spec once/2 :: (cron_time() | seconds(), function()) ->  job_ref().
+-spec once/2 :: (cron_time() | seconds(), callable()) ->  job_ref().
 once(When, Fun) ->
     Job = {{once, When}, Fun},
     cron(Job).

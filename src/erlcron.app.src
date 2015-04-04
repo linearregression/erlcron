@@ -6,7 +6,7 @@
              ecrn_reg, ecrn_sup,
              ecrn_util, erlcron
   ]},
-  {registered,[erlcron]},
+  {registered,[]},
   {applications,[kernel,stdlib]},
   {mod,{ecrn_app,[]}},
   {env, []}]

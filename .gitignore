@@ -16,7 +16,7 @@ logs
 *.plt
 /deps/*
 /doc/*
-/rel/ecrn_agent
+rel/erlcron/
 .eunit/*
 .rebar/*
 .deps_plt

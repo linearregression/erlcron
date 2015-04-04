@@ -11,8 +11,6 @@
 ## Enable kernel poll and a few async threads
 +K true
 +A 10
-+V
-+v
 
 ## enable smp if supported
 -smp auto

@@ -9,6 +9,7 @@
 
 -behaviour(application).
 
+%% Api
 -export([start/0, stop/0]).
 
 %% Application callbacks
@@ -31,7 +32,7 @@ start(_StartType, _StartArgs) ->
     {ok, Pid}.
 
 %% @private
-stop() -> stop(normal).
+stop() -> stop([]).
 
 stop(_State) ->
     ok.
