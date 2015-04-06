@@ -4,8 +4,7 @@
 
 CALLER_DIR=$PWD
 
-# Test if REMSH_NAME contains a @ and set REMSH_HOSTNAME_PART 
-# and REMSH_NAME_PART according REMSH_TYPE
+# Get existing hostname or from input
 MAYBE_FQDN_HOSTNAME=`hostname`
 HOSTNAME=`echo $MAYBE_FQDN_HOSTNAME | awk -F. '{print $1}'`
 
@@ -17,4 +16,4 @@ eval "erl \
     -eval \"application:start(crypto)\" \
     -eval \"application:start(eunit)\" \
     -eval \"application:start(erlcron)\"\
-    -config \"priv/erlcron.config\""
+    -config \"./priv/erlcron.config\""
