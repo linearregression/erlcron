@@ -55,7 +55,7 @@ compile:
 generate: fast
 	cp -f $(CURDIR)/priv/erlcron.config $(CURDIR)/rel/files/erlcron.config
 	rm -rvf $(CURDIR)/rel/erlcron
-	$(REBAR) generate
+	(cd rel && $(REBAR) generate)
 
 doc:
 	$(REBAR) skip_deps=true doc
