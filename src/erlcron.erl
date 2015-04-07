@@ -71,21 +71,21 @@ validate(Spec) ->
 %%  spec. It returns the JobRef that can be used to manipulate the job
 %%  after it is created.
 
--spec cron/1 :: (job()) -> job_ref().
+-spec cron/1 :: (job()) -> {ok, erlcron:job_ref()} | {error, term()}.
 cron(Job) ->
     JobRef = make_ref(),
     ecrn_cron_sup:add_job(JobRef, Job).
 %% @doc
 %%  Convienience method to specify a job to run daily
 %%  at a specific time.
--spec at/2 :: (cron_time() | seconds(), callable()) -> job_ref().
+-spec at/2 :: (cron_time() | seconds(), callable()) -> {ok, erlcron:job_ref()} | {error, term()}.
 at(When, Fun) ->
     Job = {{daily, When}, Fun},
     cron(Job).
 
 %% @doc
 %%   Run the specified job once after the amount of time specifed.
--spec once/2 :: (cron_time() | seconds(), callable()) ->  job_ref().
+-spec once/2 :: (cron_time() | seconds(), callable()) ->  {ok, erlcron:job_ref()} | {error, term()}.
 once(When, Fun) ->
     Job = {{once, When}, Fun},
     cron(Job).

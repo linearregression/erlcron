@@ -68,7 +68,7 @@ cancel_alarm_test(_) ->
     erlcron:cancel(Ref),
     erlcron:set_datetime({Day, AlarmTimeOfDay}),
     ?assertMatch(ok, receive
-                         ack -> ack
+                         ack -> ok
                      after
                          %% There is no event-driven way to
                          %% ensure we never receive an ack.

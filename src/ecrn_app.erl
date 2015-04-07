@@ -28,7 +28,7 @@ start() -> start(normal, []).
 
 start(_StartType, _StartArgs) ->
     {ok, Pid} = ecrn_sup:start_link(),
-    setup(),
+    ok = setup(),
     {ok, Pid}.
 
 %% @private
@@ -37,12 +37,14 @@ stop() -> stop([]).
 stop(_State) ->
     ok.
 
+spawnJob([])-> ok;
+spawnJob([Job|Rest]) ->
+    erlcron:cron(Job),
+    spawnJob(Rest).
+
 setup() ->
     case application:get_env(erlcron, crontab) of 
-        {ok, Crontab} ->
-            lists:foreach(fun(CronJob) ->
-                erlcron:cron(CronJob) 
-            end, Crontab);
+        {ok, Crontab} -> spawnJob(Crontab);
         undefined ->
             ok
     end.
